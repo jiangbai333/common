@@ -1,15 +1,15 @@
 /**
- *		åˆ©ç”¨é—­åŒ…å®ç°çš„æ•°æ®å­˜å‚¨
- * @param string key é”®å
- * @param mixed value é”®å€¼
- * @author å§œæŸè¶…
+ *		ÀûÓÃ±Õ°üÊµÏÖµÄÊı¾İ´æ´¢
+ * @param string key ¼üÃû
+ * @param mixed value ¼üÖµ
+ * @author ½ª°Ø³¬
  * @time 2016-02-18 08:46:29
  */
 var db = (function() {
     
-    var data = {}; //æ•°æ®å®¹å™¨å¯¹è±¡
+    var data = {}; //Êı¾İÈİÆ÷¶ÔÏó
     
-    /**å¯¹å‘å¸ƒæš´éœ² getterã€setter æ¥å£*/
+    /**¶ÔÍâ²¿±©Â© getter¡¢setter ½Ó¿Ú*/
     return function(key, value) {
         return value === undefined ? data[key] : data[key] = value;
     }
