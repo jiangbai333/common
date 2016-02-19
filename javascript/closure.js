@@ -1,15 +1,15 @@
 /**
- *		ÀûÓÃ±Õ°üÊµÏÖµÄÊı¾İ´æ´¢
- * @param string key ¼üÃû
- * @param mixed value ¼üÖµ
- * @author ½ª°Ø³¬
+ *		åˆ©ç”¨é—­åŒ…å®ç°çš„æ•°æ®å­˜å‚¨
+ * @param string key é”®å
+ * @param mixed value é”®å€¼
+ * @author å§œæŸè¶…
  * @time 2016-02-18 08:46:29
  */
 var db = (function() {
     
-    var data = {}; //Êı¾İÈİÆ÷¶ÔÏó
+    var data = {}; //æ•°æ®å®¹å™¨å¯¹è±¡
     
-    /**¶ÔÍâ²¿±©Â© getter¡¢setter ½Ó¿Ú*/
+    /**å¯¹å¤–éƒ¨æš´æ¼ getterã€setter æ¥å£*/
     return function(key, value) {
         return value === undefined ? data[key] : data[key] = value;
     }
@@ -17,25 +17,25 @@ var db = (function() {
 })();
 
 /**
- *		½øÒ»²½ÓÅ»¯µÄÊı¾İ´æ´¢¹¦ÄÜ
- * @author ½ª°Ø³¬
+ *		è¿›ä¸€æ­¥ä¼˜åŒ–çš„æ•°æ®å­˜å‚¨åŠŸèƒ½
+ * @author å§œæŸè¶…
  * @time 2016-02-19 11:17:29
  */
 var db = (function() {
     
-    var data = {}; //Êı¾İÈİÆ÷¶ÔÏó
+    var data = {}; //æ•°æ®å®¹å™¨å¯¹è±¡
     
 	/**
-	 *		ÑéÖ¤¼üÃûÊÇ·ñÊÇºÏÊÊµÄÊı¾İÀàĞÍ
-	 * @param mixed param ½«ÒªÑéÖ¤µÄ¼üÃû
+	 *		éªŒè¯é”®åæ˜¯å¦æ˜¯åˆé€‚çš„æ•°æ®ç±»å‹
+	 * @param mixed param å°†è¦éªŒè¯çš„é”®å
 	 * @throws msg
 	 * @return boolean
 	 */
     function verification(param) {
         try {
-			/**ÅĞ¶Ï¼üÃûÊÇ·ñÎª×Ö·û´®*/
+			/**åˆ¤æ–­é”®åæ˜¯å¦ä¸ºå­—ç¬¦ä¸²*/
             if ( "string" != typeof( param ) ) {
-                throw "¼üÃû±ØĞëÎª×Ö·û´®¸ñÊ½£¬²»ÔÊĞíÆäËüÀàĞÍÊı¾İ×÷Îª¼üÃû";
+                throw "é”®åå¿…é¡»ä¸ºå­—ç¬¦ä¸²æ ¼å¼ï¼Œä¸å…è®¸å…¶å®ƒç±»å‹æ•°æ®ä½œä¸ºé”®å";
             }
         } catch( e ) {
 
@@ -46,32 +46,32 @@ var db = (function() {
         return true;
     }
     
-	/**·µ»ØÒ»¸ö¿É¶ÔÊı¾İÈİÆ÷½øĞĞ²Ù×÷µÄ¶ÔÏó*/
+	/**è¿”å›ä¸€ä¸ªå¯å¯¹æ•°æ®å®¹å™¨è¿›è¡Œæ“ä½œçš„å¯¹è±¡*/
     return new function() {
                 
-		/**
-		 *		¶ÁÈ¡Êı¾İ
-		 * @param string key ½«Òª¶ÁÈ¡µÄÊı¾İ¶ÔÓ¦µÄ¼üÃû
-		 * @return mixed ¼üÖµ
-		 */
+	/**
+	 *		è¯»å–æ•°æ®
+	 * @param string key å°†è¦è¯»å–çš„æ•°æ®å¯¹åº”çš„é”®å
+	 * @return mixed é”®å€¼
+	 */
         this.get = function(key) {
             return data[key];
         }
 		
-		/**
-		 *		²åÈëÊı¾İ
-		 * @param string key ½«Òª²åÈëµÄÊı¾İ¶ÔÓ¦µÄ¼üÃû
-		 * @param mixed value ½«Òª²åÈëµÄÊı¾İ
-		 * @return mixed Èô²åÈëÊı¾İ³É¹¦Ôò·µ»Ø±»²åÈëµÄÊı¾İ,·ñÔò·µ»Ø false
-		 */
+	/**
+	 *		æ’å…¥æ•°æ®
+	 * @param string key å°†è¦æ’å…¥çš„æ•°æ®å¯¹åº”çš„é”®å
+	 * @param mixed value å°†è¦æ’å…¥çš„æ•°æ®
+	 * @return mixed è‹¥æ’å…¥æ•°æ®æˆåŠŸåˆ™è¿”å›è¢«æ’å…¥çš„æ•°æ®,å¦åˆ™è¿”å› false
+	 */
         this.add = function(key, value) {
             return verification(key) ? data[key] = value : false;
         }
 
-		/**
-		 *		ÒÆ³ıÊı¾İ
-		 * @param string key ½«ÒªÒÆ³ıµÄÊı¾İ¶ÔÓ¦µÄ¼üÃû
-		 */
+	/**
+	 *		ç§»é™¤æ•°æ®
+	 * @param string key å°†è¦ç§»é™¤çš„æ•°æ®å¯¹åº”çš„é”®å
+	 */
         this.del = function(key) {
             delete( data[key] );
         }
