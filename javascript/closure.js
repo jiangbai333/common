@@ -25,15 +25,15 @@ var db = (function() {
     
     var data = {}; //数据容器对象
     
-	/**
-	 *		验证键名是否是合适的数据类型
-	 * @param mixed param 将要验证的键名
-	 * @throws msg
-	 * @return boolean
-	 */
+    /**
+     *		验证键名是否是合适的数据类型
+     * @param mixed param 将要验证的键名
+     * @throws msg
+     * @return boolean
+     */
     function verification(param) {
         try {
-			/**判断键名是否为字符串*/
+	    /**判断键名是否为字符串*/
             if ( "string" != typeof( param ) ) {
                 throw "键名必须为字符串格式，不允许其它类型数据作为键名";
             }
@@ -46,7 +46,7 @@ var db = (function() {
         return true;
     }
     
-	/**返回一个可对数据容器进行操作的对象*/
+    /**返回一个可对数据容器进行操作的对象*/
     return new function() {
                 
 	/**
