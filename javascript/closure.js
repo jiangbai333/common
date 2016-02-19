@@ -2,7 +2,8 @@
  *		利用闭包实现的数据存储
  * @param string key 键名
  * @param mixed value 键值
- * @author 姜柏超
+ * @author jiangbai333
+ * @email jiangbai333@Gmail.com
  * @time 2016-02-18 08:46:29
  */
 var db = (function() {
@@ -18,7 +19,6 @@ var db = (function() {
 
 /**
  *		进一步优化的数据存储功能
- * @author 姜柏超
  * @time 2016-02-19 11:17:29
  */
 var db = (function() {
