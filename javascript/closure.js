@@ -1,5 +1,4 @@
 /**
-<<<<<<< HEAD
  *		利用闭包实现的数据存储
  * @param string key 键名
  * @param mixed value 键值
