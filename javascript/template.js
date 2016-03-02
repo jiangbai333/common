@@ -8,34 +8,33 @@
  */
 function render(template, context) {
 	/** 匹配模板变量的正则表达式 */
-    var reg = /(\\)?\{\$([^\{\}\\]+)?\}/g;
-    
-    return template.replace(reg, function(str, mark, match, index) {
-	    /** 如果以\\{$.*}作为占位符, 则不进行替换 */
-        if ( mark ) {
-            return str.replace('\\', '');
-        } else {
+	var reg = /(\\)?\{\$([^\{\}\\]+)?\}/g;
+	
+	return template.replace(reg, function($0, $1, $2, $3) {
+		/** 如果以\\{$.*}作为占位符, 则不进行替换 */
+		if ( $1 ) {
+			return $0.replace('\\', '');
+		} else {
 			/** 按所属关系分割模板变量 */
-            var variables = match.replace(/\s/g, '').split('.'),
-			
-                currentObject = context;
+			var $4 = $2.replace(/\s/g, '').split('.'),
+				$5 = context;
             
 			/** 循环解析模板变量 */
-			for ( var obj in variables ) {
-                currentObject = currentObject[variables[obj]];
-                if ( currentObject === undefined || currentObject === null ) {
-                    return '';
-                }
-            }
+			for ( var $6 in $4 ) {
+				$5 = $5[$4[$6]];
+				if ( $5 === undefined || $5 === null ) {
+					return '';
+				}
+			}
 
-            return currentObject;
-        }
-    });
+			return $5;
+		}
+	});
 }
 
 /** 将模板引擎挂载到String的原型链 */
 String.prototype.render = function (context) {
-    return render(this, context);
+	return render(this, context);
 };
 
 
@@ -44,29 +43,28 @@ String.prototype.render = function (context) {
  */
  
 String.prototype.templated = function (context) {
-    return function(template, context) {
+	return function(template, context) {
 		/** 匹配模板变量的正则表达式 */
 		var reg = /(\\)?\{\$([^\{\}\\]+)?\}/g;
 		
-		return template.replace(reg, function(str, mark, match, index) {
+		return template.replace(reg, function($0, $1, $2, $3) {
 			/** 如果以\\{$.*}作为占位符, 则不进行替换 */
-			if ( mark ) {
-				return str.replace('\\', '');
+			if ( $1 ) {
+				return $0.replace('\\', '');
 			} else {
 				/** 按所属关系分割模板变量 */
-				var variables = match.replace(/\s/g, '').split('.'),
-				
-					currentObject = context;
+				var $4 = $2.replace(/\s/g, '').split('.'),
+					$5 = context;
 				
 				/** 循环解析模板变量 */
-				for ( var obj in variables ) {
-					currentObject = currentObject[variables[obj]];
-					if ( currentObject === undefined || currentObject === null ) {
+				for ( var $6 in $4 ) {
+					$5 = $5[$4[$6]];
+					if ( $5 === undefined || $5 === null ) {
 						return '';
 					}
 				}
 
-				return currentObject;
+				return $5;
 			}
 		});
 	}(this, context);
