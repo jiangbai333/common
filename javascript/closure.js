@@ -89,7 +89,7 @@ var db = (function() {
         /**
          *        克隆一个数据容器中的原始数据的副本
          * @return Object clone
-         * 此方法返回对data的一个引用
+         * 此方法返回data的一个副本
          */
         this.clone = function() {
             var r = new Object();
