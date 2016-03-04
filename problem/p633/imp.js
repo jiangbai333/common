@@ -1,5 +1,5 @@
 /**
- * å¦‚æœ(a, b, c)æ»¡è¶³ a*x + b*y = c åˆ™è¾“å‡º "yes" å¦åˆ™è¾“å‡º "no"
+ * ¸ø¶¨Èı¸öÕûÊı(a, b, c)ÈôÂú×ã a*x + b*y = c ÔòÊä³ö"yes" ·ñÔòÊä³ö "no"
  */
 function t(a, b, c) {
     for (x = 0; ; x++){
@@ -7,7 +7,7 @@ function t(a, b, c) {
             console.log("yes", a + "*" + x + "+" + b + "*" + ( c - a * x ) / b + "=" + c);
             break;
         } else if( ( c - a * x )  < ( b + 1 ) && ( c - a * x ) % a !==0) {
-            console.log("no", "å¾ªç¯æ¬¡æ•°" + x);
+            console.log("no", "Ñ­»·´ÎÊı" + x);
             break;
         }
     }
