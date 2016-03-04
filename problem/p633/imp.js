@@ -1,13 +1,13 @@
 /**
- * Èç¹û(a, b, c)Âú×ã a*x + b*y = c ÔòÊä³ö "yes" ·ñÔòÊä³ö "no"
+ * å¦‚æœ(a, b, c)æ»¡è¶³ a*x + b*y = c åˆ™è¾“å‡º "yes" å¦åˆ™è¾“å‡º "no"
  */
 function t(a, b, c) {
-    for (x=0; ; x++){
-        if ( (c - a*x) % b == 0 ) {
-            console.log("yes", a + "*" + x + "+" + b + "*" + (c - a*x) / b + "=" + c);
+    for (x = 0; ; x++){
+        if ( ( c - a * x ) % b == 0 ) {
+            console.log("yes", a + "*" + x + "+" + b + "*" + ( c - a * x ) / b + "=" + c);
             break;
-        } else if( (c - a*x)  < (b+1) && (c - a*x) % a !==0) {
-            console.log("no", "Ñ­»·´ÎÊı" + x);
+        } else if( ( c - a * x )  < ( b + 1 ) && ( c - a * x ) % a !==0) {
+            console.log("no", "å¾ªç¯æ¬¡æ•°" + x);
             break;
         }
     }
