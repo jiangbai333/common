@@ -4,24 +4,10 @@
  * @param mixed value 键值
  * @author jiangbai333
  * @email jiangbai333@Gmail.com
- * @time 2016-02-18 08:46:29
- */
- 
-var db = (function() {
-    
-    var data = {}; //数据容器对象
-    
-    /**对外部暴漏 getter、setter 接口*/
-    return function(key, value) {
-        return value === undefined ? data[key] : data[key] = value;
-    }
-    
-})();
-
-/**
- *        进一步优化的数据存储功能
  * @time 2016-02-19 11:17:29
  */
+'use strict';
+
 var db = (function() {
     
     var data = {}; //数据容器对象
