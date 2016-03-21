@@ -1,0 +1,23 @@
+<input id="i1"/> + <input id="i2"/> = <input id="i3"/> 
+<script>
+	var i1 = document.querySelector("#i1"),
+		i2 = document.querySelector("#i2"),
+		i3 = document.querySelector("#i3");
+	
+	if ( window.Worker ) {
+        
+		var w = new Worker("work.js");
+		
+		i1.onkeyup = function() {
+			w.postMessage([i1.value, i2.value]);
+		};
+		
+		i2.onkeyup = function() {
+			w.postMessage([i1.value, i2.value]);
+		};
+		
+		w.onmessage = function(e) {
+        	i3.value = e.data;
+		};
+    }
+</script>
