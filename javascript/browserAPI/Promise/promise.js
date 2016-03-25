@@ -22,3 +22,25 @@ var pro = new Promise(function(resolve, reject) {
 });
 
 messageBox.innerHTML += "write message<br>";
+
+
+/**
+ * Á´Ê½µ÷ÓÃ
+ */
+var pro = new Promise(function(resolve, reject) {
+
+	setTimeout(function () {
+		//resolve("Promise resolve");
+		reject("Promise reject");
+	}, 1000);
+
+}).then(function(res) {
+
+	return res;
+},function(rej){
+
+	return rej;
+}).then(function(res) {
+
+	console.log(res);
+});
