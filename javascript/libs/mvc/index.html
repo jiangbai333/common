@@ -1,0 +1,11 @@
+<div id="div1" bind="model1"></div>
+<div id="div2" bind="model1"></div>
+
+
+<script src="./index.js"></script>
+<script>
+new Controller(function (models) {
+    var model1 = models.model1;
+    model1.set('this is a div');
+});
+</script>
