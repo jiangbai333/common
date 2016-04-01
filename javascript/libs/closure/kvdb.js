@@ -8,7 +8,7 @@
  */
 'use strict';
 
-var db = (function() {
+var db = (function() { 
     
     var data = {}; //数据容器对象
     
