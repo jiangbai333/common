@@ -1,3 +1,4 @@
+
 function Model(value) {
 	this._value = typeof value === 'undefined' ? '' : value;
 	this._listeners = [];
@@ -13,15 +14,22 @@ Model.prototype.set = function (value) {
 	});
 };
 
+/**
+ * 初始化一个监听器
+ */
 Model.prototype.watch = function (listener) {
 	this._listeners.push(listener);
 };
 
+/**
+ * 将监听程序绑定到监听器
+ */
 Model.prototype.bind = function (node) {
 	this.watch(function (value) {
 		node.innerHTML = value;
 	});
 };
+
 
 function Controller(callback) {
 	var models = {};
