@@ -1,0 +1,18 @@
+var a = document.querySelector("#java").innerHTML;
+
+a = a.replace(/(\".*?\")/ig, "<span class='strkey'>$1</span>");
+
+a = a.replace(/\b(public|class[^=]|package|import|this|extends|void|[^.]Map|int|String|[^.]HashMap)\b/g,"<span class='systemkey'>$1</span>")
+
+a = a.replace(/(\/\/.*|\/\*(\s|.)*?\*\/)/g, "<span class='notes'>$1</span>");
+
+document.querySelector("#java").innerHTML = a;
+
+
+
+
+
+var a = document.querySelector("#html").innerHTML;
+a = a.replace(/(\&lt\;[a-zA-Z0-9]*\&gt\;|\&lt\;\/.+\&gt\;|[^-]&gt\;?|\&lt\;[^!][a-zA-Z0-9]*)/ig, "<span class='strkey'>$1</span>");
+a = a.replace(/=(\".*?\")/ig, "=<span class='strkey'>$1</span>");
+document.querySelector("#html").innerHTML = a;
